@@ -25,9 +25,13 @@ const App: () => React$Node = () => {
     <SafeAreaView>
       <ScrollView>
         <View style={styles.container}>
+
+          {/* Header */}
           <View style={styles.headerContainer}>
             <Text style={styles.homePageTitle}>Movies</Text>
           </View>
+
+          {/* Body with movie list */}
           <View style={styles.bodyContainer}>
 
             {/* single List item container */}
@@ -87,26 +91,26 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   container: {
-    flex: 1,
+    flex: 10,
     flexDirection: 'column',
     backgroundColor: 'white',
   },
   headerContainer: {
-    flex: 0.9,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#eeeeee'
   },
+  bodyContainer: {
+    flex: 9,
+  },
   homePageTitle: {
     fontSize: 20,
     textAlign: 'center',
     marginLeft: 20,
     color: 'black'
-  },
-  bodyContainer: {
-    flex: 9,
   },
   movieName: {
     fontSize: 16,
