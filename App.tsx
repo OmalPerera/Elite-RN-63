@@ -41,6 +41,8 @@ const App: () => React$Node = () => {
 const Item = ({ itemData }) => {
   return (
     <View style={styles.singleListItemContainer}>
+
+      {/* movie thumbnail */}
       <View style={styles.thumbnailContainer}>
         <Image
           style={styles.movieImage}
@@ -49,9 +51,13 @@ const Item = ({ itemData }) => {
           }}
         />
       </View>
+
+      {/* Other information */}
       <View style={styles.informationContainer}>
         <Text style={styles.movieName}>{itemData.title}</Text>
         <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
+
+        {/* Watch Now button */}
         <TouchableOpacity
           style={styles.button}
           onPress={() => { Linking.openURL(itemData.youtubeUrl); }}
