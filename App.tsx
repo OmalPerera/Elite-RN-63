@@ -29,7 +29,11 @@ const App: () => React$Node = () => {
             <Text style={styles.homePageTitle}>Movies</Text>
           </View>
           <View style={styles.bodyContainer}>
+
+            {/* single List item container */}
             <View style={styles.singleListItemContainer}>
+
+              {/* movie thumbnail */}
               <View style={styles.thumbnailContainer}>
                 <Image
                   style={styles.movieImage}
@@ -38,9 +42,13 @@ const App: () => React$Node = () => {
                   }}
                 />
               </View>
+
+              {/* movie other Infomation */}
               <View style={styles.informationContainer}>
                 <Text style={styles.movieName}>{itemData.title}</Text>
                 <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
+
+                {/* Watch Now button */}
                 <TouchableOpacity
                   style={styles.button}
                 >
