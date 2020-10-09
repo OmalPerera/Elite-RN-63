@@ -3,20 +3,23 @@ import {
   StyleSheet,
   View,
   Text,
-  FlatList,
   Image,
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
   Linking,
 } from 'react-native';
-import { DATA } from './movie-list';
 
 const App: () => React$Node = () => {
 
-  const renderItem = ({ item }) => (
-    <Item itemData={item} />
-  );
+  const itemData = {
+    id: '1',
+    title: 'Marvel`s Avengers : Infinty war',
+    thumbnail: 'https://is2-ssl.mzstatic.com/image/thumb/Video125/v4/a4/17/e9/a417e9a4-da6a-4818-17c9-83a741ec3fab/pr_source.lsr/268x0w.png',
+    year: '2018',
+    duration: '120 mins',
+    youtubeUrl: 'https://www.youtube.com/watch?v=6ZfuNTqbHE8'
+  }
 
   return (
     <SafeAreaView>
@@ -26,11 +29,25 @@ const App: () => React$Node = () => {
             <Text style={styles.homePageTitle}>Movies</Text>
           </View>
           <View style={styles.bodyContainer}>
-            <FlatList
-              data={DATA}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-            />
+            <View style={styles.singleListItemContainer}>
+              <View style={styles.thumbnailContainer}>
+                <Image
+                  style={styles.movieImage}
+                  source={{
+                    uri: itemData.thumbnail,
+                  }}
+                />
+              </View>
+              <View style={styles.informationContainer}>
+                <Text style={styles.movieName}>{itemData.title}</Text>
+                <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
+                <TouchableOpacity
+                  style={styles.button}
+                >
+                  <Text style={styles.watchNowSty}>Watch Now</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -38,30 +55,6 @@ const App: () => React$Node = () => {
   );
 };
 
-const Item = ({ itemData }) => {
-  return (
-    <View style={styles.singleListItemContainer}>
-      <View style={styles.thumbnailContainer}>
-        <Image
-          style={styles.movieImage}
-          source={{
-            uri: itemData.thumbnail,
-          }}
-        />
-      </View>
-      <View style={styles.informationContainer}>
-        <Text style={styles.movieName}>{itemData.title}</Text>
-        <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => { Linking.openURL(itemData.youtubeUrl); }}
-        >
-          <Text style={styles.watchNowSty}>Watch Now</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-}
 
 const styles = StyleSheet.create({
   scrollView: {
