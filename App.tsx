@@ -34,40 +34,36 @@ const App: () => React$Node = () => {
   );
 };
 
+// Single list item template
 const renderItem = ({ item }) => (
-  <Item itemData={item} />
+  <View style={styles.singleListItemContainer}>
+
+    {/* movie thumbnail */}
+    <View style={styles.thumbnailContainer}>
+      <Image
+        style={styles.movieImage}
+        source={{
+          uri: item.thumbnail,
+        }}
+      />
+    </View>
+
+    {/* Other information */}
+    <View style={styles.informationContainer}>
+      <Text style={styles.movieName}>{item.title}</Text>
+      <Text style={styles.movieInfoText}>{item.year + ', ' + item.duration}</Text>
+
+      {/* Watch Now button */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL(item.youtubeUrl); }}
+      >
+        <Text style={styles.watchNowSty}>Watch Now</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
 );
 
-const Item = ({ itemData }) => {
-  return (
-    <View style={styles.singleListItemContainer}>
-
-      {/* movie thumbnail */}
-      <View style={styles.thumbnailContainer}>
-        <Image
-          style={styles.movieImage}
-          source={{
-            uri: itemData.thumbnail,
-          }}
-        />
-      </View>
-
-      {/* Other information */}
-      <View style={styles.informationContainer}>
-        <Text style={styles.movieName}>{itemData.title}</Text>
-        <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
-
-        {/* Watch Now button */}
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => { Linking.openURL(itemData.youtubeUrl); }}
-        >
-          <Text style={styles.watchNowSty}>Watch Now</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-}
 
 const styles = StyleSheet.create({
   scrollView: {
