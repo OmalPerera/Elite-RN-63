@@ -14,10 +14,6 @@ import { DATA } from './movie-list';
 
 const App: () => React$Node = () => {
 
-  const renderItem = ({ item }) => (
-    <Item itemData={item} />
-  );
-
   return (
     <SafeAreaView>
       <ScrollView>
@@ -37,6 +33,10 @@ const App: () => React$Node = () => {
     </SafeAreaView>
   );
 };
+
+const renderItem = ({ item }) => (
+  <Item itemData={item} />
+);
 
 const Item = ({ itemData }) => {
   return (
