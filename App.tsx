@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   SafeAreaView,
-  ScrollView,
   Linking,
 } from 'react-native';
 
@@ -22,48 +21,47 @@ const App: () => React$Node = () => {
   }
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View style={styles.container}>
+    <>
+      <SafeAreaView></SafeAreaView>
+      <View style={styles.container}>
 
-          {/* Header */}
-          <View style={styles.headerContainer}>
-            <Text style={styles.homePageTitle}>Movies</Text>
-          </View>
+        {/* Header */}
+        <View style={styles.headerContainer}>
+          <Text style={styles.homePageTitle}>Movies</Text>
+        </View>
 
-          {/* Body with movie list */}
-          <View style={styles.bodyContainer}>
+        {/* Body with movie list */}
+        <View style={styles.bodyContainer}>
 
-            {/* single List item container */}
-            <View style={styles.singleListItemContainer}>
+          {/* single List item container */}
+          <View style={styles.singleListItemContainer}>
 
-              {/* movie thumbnail */}
-              <View style={styles.thumbnailContainer}>
-                <Image
-                  style={styles.movieImage}
-                  source={{
-                    uri: itemData.thumbnail,
-                  }}
-                />
-              </View>
+            {/* movie thumbnail */}
+            <View style={styles.thumbnailContainer}>
+              <Image
+                style={styles.movieImage}
+                source={{
+                  uri: itemData.thumbnail,
+                }}
+              />
+            </View>
 
-              {/* movie other Infomation */}
-              <View style={styles.informationContainer}>
-                <Text style={styles.movieName}>{itemData.title}</Text>
-                <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
+            {/* movie other Infomation */}
+            <View style={styles.informationContainer}>
+              <Text style={styles.movieName}>{itemData.title}</Text>
+              <Text style={styles.movieInfoText}>{itemData.year + ', ' + itemData.duration}</Text>
 
-                {/* Watch Now button */}
-                <TouchableOpacity
-                  style={styles.button}
-                >
-                  <Text style={styles.watchNowSty}>Watch Now</Text>
-                </TouchableOpacity>
-              </View>
+              {/* Watch Now button */}
+              <TouchableOpacity
+                style={styles.button}
+              >
+                <Text style={styles.watchNowSty}>Watch Now</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+    </>
   );
 };
 
@@ -91,12 +89,12 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   container: {
-    flex: 10,
+    flex: 100,
     flexDirection: 'column',
     backgroundColor: 'white',
   },
   headerContainer: {
-    flex: 1,
+    flex: 7,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -104,7 +102,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#eeeeee'
   },
   bodyContainer: {
-    flex: 9,
+    flex: 93,
   },
   homePageTitle: {
     fontSize: 20,
@@ -117,7 +115,6 @@ const styles = StyleSheet.create({
     color: '#222'
   },
   singleListItemContainer: {
-    flex: 1,
     flexDirection: 'row',
     padding: 20,
     borderBottomWidth: 1,
