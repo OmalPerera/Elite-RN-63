@@ -65,6 +65,7 @@ const App: () => React$Node = () => {
   );
 };
 
+//const renderItem = ({ item }) => (<><Text style={styles.homePageTitle}>Movies</Text></>)
 
 const styles = StyleSheet.create({
   scrollView: {
