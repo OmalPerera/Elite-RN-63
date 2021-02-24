@@ -7,7 +7,6 @@ import {
   Image,
   TouchableOpacity,
   SafeAreaView,
-  ScrollView,
   Linking,
 } from 'react-native';
 import { DATA } from './movie-list';
@@ -15,22 +14,21 @@ import { DATA } from './movie-list';
 const App: () => React$Node = () => {
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.homePageTitle}>Movies</Text>
-          </View>
-          <View style={styles.bodyContainer}>
-            <FlatList
-              data={DATA}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-            />
-          </View>
+    <>
+      <SafeAreaView></SafeAreaView>
+      <View style={styles.container}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.homePageTitle}>Movies</Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+        <View style={styles.bodyContainer}>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
+        </View>
+      </View>
+    </>
   );
 };
 
@@ -88,12 +86,12 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   container: {
-    flex: 1,
+    flex: 100,
     flexDirection: 'column',
     backgroundColor: 'white',
   },
   headerContainer: {
-    flex: 0.9,
+    flex: 7,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -107,14 +105,13 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   bodyContainer: {
-    flex: 9,
+    flex: 93,
   },
   movieName: {
     fontSize: 16,
     color: '#222'
   },
   singleListItemContainer: {
-    flex: 1,
     flexDirection: 'row',
     padding: 20,
     borderBottomWidth: 1,
